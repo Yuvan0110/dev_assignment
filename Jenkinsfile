@@ -18,5 +18,10 @@ pipeline {
                 bat 'mvn test'
             }
         }
+        stage('Run') { 
+            steps {
+                bat 'java -cp target/classes com.example.bubblesort.BubbleSort'
+            }
+        }
     }
 }
