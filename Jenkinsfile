@@ -2,8 +2,7 @@ pipeline {
     agent {
         docker {
             image 'maven:latest'
-            args '-v C:/Users/ADMIN/.m2/repository:/root/.m2/repository'
-
+            args '-v C:/Users/ADMIN/.m2/repository:/root/.m2/repository' // Mount Maven local repository to Docker container
         }
     }
     
@@ -11,14 +10,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the Maven project from GitHub repository
-                bat 'https://github.com/Rsowmya26/dev_assignment.git'
+                git 'https://github.com/yourusername/guitar-project.git'
             }
         }
         
         stage('Build and Test') {
             steps {
-                // Clean the project to remove any existing build artifacts and Compile the source code, run tests
-                bat 'mvn clean install'
+                // Change the working directory to an absolute path
+                bat 'docker run -d -t -v C:/Users/ADMIN/.m2/repository:/root/.m2/repository -w /usr/src/app maven:latest mvn clean install'
             }
         }
     }
