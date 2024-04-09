@@ -16,13 +16,13 @@ pipeline {
         stage('Build') {
             steps {
                 // Build the Maven project
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
         stage('Test') {
             steps {
                 // Run tests for the Maven project
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
     }
