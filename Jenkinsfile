@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Checkout source code from SCM
-                checkout scm // This will automatically check out the code from the URL specified in Jenkins configuration
+                checkout 'git@https://github.com/Rsowmya26/dev_assignment.git'
                 
                 // Build Maven project using a batch script
                 bat "mvn clean package"
