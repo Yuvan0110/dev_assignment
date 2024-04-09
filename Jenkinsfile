@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Checkout the code from your Git repository
-                git 'https://github.com/Rsowmya26/dev_assignment.git'
+                bat 'git clone  https://github.com/Rsowmya26/dev_assignment.git'
                 
                 // Build the Maven project
                 bat 'mvn clean package'
