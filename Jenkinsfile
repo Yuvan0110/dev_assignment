@@ -7,11 +7,16 @@ pipeline {
     }
     
     stages {
+        stage('Checkout') {
+            steps {
+                // Fetch the source code from the repository
+                checkout([$class: 'GitSCM', 
+                          branches: [[name: '*/main']], 
+                          userRemoteConfigs: [[url: 'https://github.com/Rsowmya26/dev_assignment.git']]])
+            }
+        }
         stage('Build') {
             steps {
-                // Checkout source code from SCM
-                checkout 'git@https://github.com/Rsowmya26/dev_assignment.git'
-                
                 // Build Maven project using a batch script
                 bat "mvn clean package"
             }
