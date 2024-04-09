@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the Maven project from GitHub repository
-                git 'https://github.com/yourusername/guitar-project.git'
+                git 'https://github.com/Rsowmya26/dev_assignment.git'
             }
         }
         
