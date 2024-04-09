@@ -1,22 +1,21 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:latest'
-        }
-    }
+    agent any
     
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                // Checkout the Maven project from GitHub repository
-                git 'https://github.com/Rsowmya26/dev_assignment.git'
+                // Checkout the code from your Git repository
+                git 'https://github.com/Rsowmya26/dev.git'
+                
+                // Build the Maven project
+                bat 'mvn clean package'
             }
         }
         
-        stage('Build and Test') {
+        stage('Test') {
             steps {
-                // Change the working directory to an absolute path
-                bat 'mvn clean install'
+                // Run Maven tests
+                bat 'mvn test'
             }
         }
     }
