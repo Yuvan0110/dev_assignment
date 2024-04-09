@@ -2,10 +2,7 @@ package com.example.bubblesort;
 
 
 public class BubbleSort {
-    public static void main(String[] args) {
-        int[] arr = {5, 3, 7, 2, 1, 8, 4};
-        bubbleSort(arr);
-    }
+   
 
     public static void bubbleSort(int[] arr) {
         int n = arr.length;
@@ -19,6 +16,10 @@ public class BubbleSort {
                 }
             }
         }
+         public static void main(String[] args) {
+        int[] arr = {5, 3, 7, 2, 1, 8, 4};
+        bubbleSort(arr);
+    }
         // Print the sorted array
         System.out.println("Sorted array:");
         for (int num : arr) {
