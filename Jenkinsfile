@@ -11,7 +11,7 @@ pipeline {
             steps {
                 // Fetch the source code from the repository
                 checkout([$class: 'GitSCM', 
-                          branches: [[name: 'main']], // Adjusted branch name to 'main'
+                          branches: [[name: '*/main']], // Adjusted branch name to 'main'
                           userRemoteConfigs: [[url: 'https://github.com/Rsowmya26/dev_assignment.git']]])
             }
         }
