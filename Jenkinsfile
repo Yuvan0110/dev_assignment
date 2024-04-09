@@ -1,28 +1,24 @@
 pipeline {
     agent {
         docker {
-            // Use the Maven Docker image as the agent
             image 'maven:latest'
-       
+            args '-v C:/Users/ADMIN/.m2/repository:/root/.m2/repository'
+
         }
     }
+    
     stages {
         stage('Checkout') {
             steps {
-                // Clone the Maven project from the GitHub repository
-                git 'https://github.com/Rsowmya26/dev_assignment.git'
+                // Checkout the Maven project from GitHub repository
+                bat 'https://github.com/Rsowmya26/dev_assignment.git'
             }
         }
-        stage('Build') {
+        
+        stage('Build and Test') {
             steps {
-                // Build the Maven project
-                bat 'mvn clean package'
-            }
-        }
-        stage('Test') {
-            steps {
-                // Run tests for the Maven project
-                bat 'mvn test'
+                // Clean the project to remove any existing build artifacts and Compile the source code, run tests
+                bat 'mvn clean install'
             }
         }
     }
