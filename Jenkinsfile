@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker {
+        dockerContainer {
             image 'maven:latest' // Use the Maven Docker image as the agent
             args '-v /var/run/docker.sock:/var/run/docker.sock' // Mount Docker socket inside the container
         }
