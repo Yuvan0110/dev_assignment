@@ -3,8 +3,7 @@ pipeline {
         docker {
             // Use the Maven Docker image as the agent
             image 'maven:latest'
-            // Specify additional options if needed
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
+       
         }
     }
     stages {
